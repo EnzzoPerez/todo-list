@@ -22,6 +22,20 @@
   font-size: large;
 }
 
+.container-list{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 6% 0 0 0;
+}
+
+#list{
+  width: 60%;
+}
+.ui.divided.list > .item{
+  word-wrap: break-word;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
