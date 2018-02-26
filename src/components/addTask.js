@@ -4,6 +4,7 @@ class AddTask extends Component {
     constructor(){
         super()
         this.handleAdd = this.handleAdd.bind(this)
+        this.handleValue=this.handleValue.bind(this)
     }
 
     handleAdd(event){
@@ -12,12 +13,25 @@ class AddTask extends Component {
         this.props.handleState(task)
     }
 
+    handleValue(event){
+        let task = event.target.value
+        this.props.handleInput(task)
+    }
+
     render() {
         return (
             <div>
                 <form onSubmit={this.handleAdd}>
-                    <input name="task" type="text"/>
-                    <button type="submit">Add Task</button>
+                    
+                    <div className="ui action input">
+                        <input name="task" type="text" value={this.props.input} onChange={this.handleValue}/>
+                        <button type="submit" className="ui primary button">
+                            <i className="plus circle icon"></i>
+                            Add Task
+                        </button>
+                    </div>
+
+                    
                 </form>
             </div>
         );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "../App.css";
 
 class ListTask extends Component {
     constructor(){
@@ -13,16 +14,24 @@ class ListTask extends Component {
     render() {
         let list = this.props.list
         return (
-            <div>
-                <ul>
+                <div className="container-list">
+                    <div id="list" className="ui middle aligned divided list">
                     {list.map((item, index) => (
-                        <li key={index}>
-                            {item}<button onClick={()=>this.delete(index)}>Borrar</button>
-                        </li>
-                        
+                        <div key={index} className="item">
+                            <div className="right floated content">
+                                <button onClick={()=>this.delete(index)} className="negative ui button">
+                                    <i className="trash alternate icon"></i>
+                                    Delete task
+                                    </button>
+                            </div>
+                            <div className="content">
+                                {item}
+                            </div>
+                        </div>
                     ))}
-                </ul>
-            </div>
+                    </div>
+                </div>
+                    
         );
     }
 }

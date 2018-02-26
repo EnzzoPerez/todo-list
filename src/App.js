@@ -8,6 +8,7 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
+      input:'',
       list: []
     }
     this.handleState=this.handleState.bind(this)
@@ -16,7 +17,14 @@ class App extends Component {
 
   handleState(task){
     this.setState({
+      input:'',
       list: [...this.state.list, task]
+    })
+  }
+
+  handleInput = (task)=>{
+    this.setState({
+      input: task
     })
   }
 
@@ -32,7 +40,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <AddTask list={this.state.list} handleState={this.handleState}/>
+        <AddTask list={this.state.list} input={this.state.input} handleState={this.handleState} handleInput={this.handleInput}/>
         <ListTask list={this.state.list} onRemove={this.onRemove}/>
       </div>
     );
